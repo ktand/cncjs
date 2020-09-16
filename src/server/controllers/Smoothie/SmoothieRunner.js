@@ -27,6 +27,10 @@ class SmoothieRunner extends events.EventEmitter {
                 y: '0.0000',
                 z: '0.0000'
             },
+            feedrate: 0,
+            feedrateOverride: 0,
+            spindle: 0,
+            spindleOverride: 0
         },
         parserstate: {
             modal: {

@@ -1081,7 +1081,7 @@ class SmoothieController {
             // @param {number} value A percentage value between 10 and 200. A value of zero will reset to 100%.
             'feedOverride': () => {
                 const [value] = args;
-                let feedOverride = this.runner.state.status.ovF;
+                let feedOverride = this.runner.state.status.feedrateOverride;
 
                 if (value === 0) {
                     feedOverride = 100;
@@ -1099,7 +1099,7 @@ class SmoothieController {
                     ...this.runner.state,
                     status: {
                         ...this.runner.state.status,
-                        ovF: feedOverride
+                        feedrateOverride: feedOverride
                     }
                 };
             },
@@ -1107,7 +1107,7 @@ class SmoothieController {
             // @param {number} value A percentage value between 10 and 200. A value of zero will reset to 100%.
             'spindleOverride': () => {
                 const [value] = args;
-                let spindleOverride = this.runner.state.status.ovS;
+                let spindleOverride = this.runner.state.status.spindleOverride;
 
                 if (value === 0) {
                     spindleOverride = 100;
@@ -1125,7 +1125,7 @@ class SmoothieController {
                     ...this.runner.state,
                     status: {
                         ...this.runner.state.status,
-                        ovS: spindleOverride
+                        spindleOverride: spindleOverride
                     }
                 };
             },

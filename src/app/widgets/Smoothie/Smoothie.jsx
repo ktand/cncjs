@@ -22,10 +22,10 @@ class Smoothie extends PureComponent {
         const controllerState = state.controller.state || {};
         const parserState = _.get(controllerState, 'parserstate', {});
         const activeState = _.get(controllerState, 'status.activeState', none);
-        const ovF = _.get(controllerState, 'status.ovF', 0);
-        const ovS = _.get(controllerState, 'status.ovS', 0);
-        const feedrate = _.get(parserState, 'feedrate', none);
-        const spindle = _.get(parserState, 'spindle', none);
+        const feedrate = _.get(controllerState, 'status.feedrate', _.get(parserState, 'feedrate', none));
+        const spindle = _.get(controllerState, 'status.spindle', _.get(parserState, 'spindle', none));
+        const ovF = _.get(controllerState, 'status.feedrateOverride', 0);
+        const ovS = _.get(controllerState, 'status.spindleOverride', 0);
         const tool = _.get(parserState, 'tool', none);
         const modal = _.mapValues(parserState.modal || {}, mapGCodeToText);
 
